@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Executive Marketplace | Unified Shopping Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface-variant": "#44474e",
+              "primary": "#000000",
+              "surface-bright": "#f8f9fa",
+              "on-secondary-fixed-variant": "#0040a1",
+              "surface-container-low": "#f3f4f5",
+              "surface-container": "#edeeef",
+              "outline": "#74777f",
+              "tertiary-fixed": "#cfe5ff",
+              "surface-dim": "#d9dadb",
+              "on-primary-fixed-variant": "#224583",
+              "on-secondary-container": "#fefcff",
+              "on-surface": "#191c1d",
+              "on-background": "#191c1d",
+              "background": "#f8f9fa",
+              "secondary-fixed": "#dae2ff",
+              "tertiary-fixed-dim": "#98cbff",
+              "on-tertiary": "#ffffff",
+              "tertiary-container": "#001d33",
+              "primary-fixed": "#d8e2ff",
+              "on-tertiary-fixed-variant": "#004a77",
+              "primary-fixed-dim": "#aec6ff",
+              "on-secondary-fixed": "#001847",
+              "surface-tint": "#3c5d9c",
+              "primary-container": "#001a42",
+              "on-secondary": "#ffffff",
+              "inverse-primary": "#aec6ff",
+              "surface-container-lowest": "#ffffff",
+              "secondary": "#0054cd",
+              "inverse-on-surface": "#f0f1f2",
+              "secondary-container": "#316ee9",
+              "surface": "#f8f9fa",
+              "on-primary-fixed": "#001a42",
+              "tertiary": "#000000",
+              "surface-variant": "#e1e3e4",
+              "on-tertiary-container": "#0089d8",
+              "inverse-surface": "#2e3132",
+              "outline-variant": "#c4c6cf",
+              "error": "#ba1a1a",
+              "on-primary": "#ffffff",
+              "on-primary-container": "#6383c5",
+              "on-error-container": "#93000a",
+              "surface-container-high": "#e7e8e9",
+              "error-container": "#ffdad6",
+              "surface-container-highest": "#e1e3e4",
+              "secondary-fixed-dim": "#b2c5ff",
+              "on-error": "#ffffff",
+              "on-tertiary-fixed": "#001d33"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-effect {
+        backdrop-filter: blur(20px);
+        background: rgba(255, 255, 255, 0.8);
+      }
+      .product-card-hover {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .product-card-hover:hover {
+        transform: translateY(-4px);
+        box-shadow: 0px 24px 48px rgba(0, 26, 66, 0.06);
+      }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-xl shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center px-6 py-3 w-full max-w-[1920px] mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-slate-900 dark:text-slate-50 font-headline">Executive Marketplace</span>
+<div class="hidden lg:flex items-center gap-6">
+<a class="text-blue-700 dark:text-blue-400 font-semibold border-b-2 border-blue-700 dark:border-blue-400 pb-1 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Categories</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium pb-1 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Brands</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium pb-1 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Best Value</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium pb-1 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Deals</a>
+</div>
+</div>
+<div class="flex-1 max-w-2xl px-8 hidden md:block">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-lg py-2.5 pl-10 pr-4 focus:ring-2 focus:ring-secondary/20 text-sm" placeholder="Search across Amazon, AliExpress, and Internal stores..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-5">
+<div class="flex items-center gap-3 text-slate-600">
+<button class="p-2 hover:bg-slate-100 rounded-full transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-secondary rounded-full"></span>
+</button>
+<button class="p-2 hover:bg-slate-100 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="h-8 w-px bg-slate-200"></div>
+<button class="flex items-center gap-2 font-medium text-slate-900 group">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="text-sm">Cart</span>
+<span class="bg-secondary text-white text-[10px] px-1.5 py-0.5 rounded-full">0</span>
+</button>
+<button class="flex items-center gap-2 bg-primary-container text-white px-4 py-2 rounded-lg text-sm font-semibold scale-95 active:transition-transform">
+<span class="material-symbols-outlined text-[18px]" data-icon="person">person</span>
+                    Account
+                </button>
+</div>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section: AI-Driven Recommendations -->
+<section class="px-6 py-12 max-w-[1920px] mx-auto">
+<div class="relative rounded-3xl overflow-hidden min-h-[500px] flex items-center">
+<div class="absolute inset-0 z-0">
+<img alt="Premium workspace with high-end tech" class="w-full h-full object-cover" data-alt="Cinematic wide shot of a minimalist workspace with luxury tech gadgets, high-end monitor, and architectural lighting, soft shadows, navy and white tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnU5uaIP9DUNo2Nlf5Ep-nbOpcMuHqGpCmZkx_9cyqOrVcn4oUu3aMKaqd8aJzAqH1GM1GrgKGtaEgFS6WhZcAA_0jQ_r3vVh-aU3buVWee2jCC7IIgE4oK_F2R7evU10U4lfs3vWauYgSp5HvF7ik_pYFBIZQkCInxSnl4vCu5_vZluZq_vPUM5zCilaAIJLKtOoQZi21HczN-MzkDMbYQ9N-qXsWIvH9MuoLW3qZLJ1Q620DqSV-nmUZt20n5eBeCi1MQ0gmis0X"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary-container/90 via-primary-container/40 to-transparent"></div>
+</div>
+<div class="relative z-10 px-12 max-w-3xl">
+<div class="inline-flex items-center gap-2 bg-secondary/20 text-secondary-fixed-dim px-3 py-1 rounded-full text-xs font-bold mb-6 tracking-wide uppercase">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">bolt</span>
+                        AI-Powered Comparison
+                    </div>
+<h1 class="text-5xl md:text-7xl font-extrabold text-white font-headline leading-[1.1] mb-6 tracking-tight">
+                        The Smarter Way <br/><span class="text-secondary-fixed">to Source.</span>
+</h1>
+<p class="text-lg text-slate-300 mb-8 max-w-xl font-body leading-relaxed">
+                        Access a unified catalog from Amazon, AliExpress, and elite Internal Sellers. Our engine tracks real-time price drops and trust scores.
+                    </p>
+<div class="flex gap-4">
+<button class="bg-secondary text-white px-8 py-4 rounded-xl font-bold flex items-center gap-2 hover:brightness-105 transition-all shadow-lg">
+                            Explore Recommendations
+                            <span class="material-symbols-outlined">trending_flat</span>
+</button>
+<button class="bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition-all">
+                            View Flash Sales
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Smart Compare Section -->
+<section class="py-20 bg-surface-container-low">
+<div class="px-8 max-w-[1920px] mx-auto">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="text-3xl font-bold font-headline mb-2">Smart Compare</h2>
+<p class="text-slate-500 font-medium">Real-time cross-platform price arbitrage</p>
+</div>
+<button class="text-secondary font-bold flex items-center gap-1 hover:underline">
+                        Live Price Feed
+                        <span class="material-symbols-outlined text-sm">arrow_outward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Compare Card 1 -->
+<div class="bg-surface-container-lowest p-5 rounded-2xl product-card-hover group">
+<div class="relative aspect-square rounded-xl overflow-hidden mb-4">
+<img alt="Pro Camera Gear" class="w-full h-full object-cover" data-alt="Professional camera lens on a stone pedestal with soft directional lighting and clean gray background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwFmSvv9-BTBnQ2XNCOQqVLJUAH9BnlRZC3ElMedPp1v9NJyNjtDYe3U58pkrkgPdnkg80ZcJZ8OnJ8qtlaMXm5R90_8dhZpPs8IKV8H3OhKffxKwCoa7pASHi4DBnOCOW6Z-5hcxV6SCH0W7BomNolmIuscLMW2RwP_Cez9zlpoH8u8RGALM1MlhwAhOwEVWYQI_TGHGA0EihvsDd5VUZfV7UIrAV_mh6hedtVJnfgKM9XpmY49EhqRc-4qfXqbO7SpB_P5QgCXkY"/>
+<span class="absolute top-3 left-3 bg-error text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">BEST DEAL</span>
+</div>
+<h3 class="font-bold text-lg mb-2 line-clamp-1">Alpha Series Pro Z1</h3>
+<div class="space-y-3 mb-4">
+<div class="flex justify-between items-center text-sm p-2 rounded bg-surface-container-low">
+<span class="text-slate-500 font-medium">Amazon</span>
+<span class="font-bold">$1,299.00</span>
+</div>
+<div class="flex justify-between items-center text-sm p-2 rounded bg-secondary/10 border border-secondary/20">
+<span class="text-secondary font-bold">Internal Hub</span>
+<span class="text-secondary font-bold">$1,145.00</span>
+</div>
+<div class="flex justify-between items-center text-sm p-2 rounded bg-surface-container-low opacity-60">
+<span class="text-slate-500 font-medium">AliExpress</span>
+<span class="font-bold">$1,199.00</span>
+</div>
+</div>
+<div class="flex items-center gap-2 mb-4">
+<div class="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+<div class="w-4/5 h-full bg-secondary"></div>
+</div>
+<span class="text-[10px] font-bold text-slate-400">92% Trust Score</span>
+</div>
+<button class="w-full bg-slate-900 text-white py-3 rounded-lg font-bold group-hover:bg-secondary transition-colors">Select Offer</button>
+</div>
+<!-- Compare Card 2 -->
+<div class="bg-surface-container-lowest p-5 rounded-2xl product-card-hover group">
+<div class="relative aspect-square rounded-xl overflow-hidden mb-4">
+<img alt="Smart Home Hub" class="w-full h-full object-cover" data-alt="Sleek silver smart home speaker on a wooden table with blurred plants in background, natural morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQ6OGV3v1q6bLZnCLJT1ypPgf8v3zcHxXdvCxOHvHOYSlutK3SdkQvySDGEp8fO3-ITU0MdhlVoHg-s9XMlVppMyjN2RMp1O84ICpW5e_kR1ksmYkL-1Ds4kA-BUl8x_XS01oW7Hf1d09VaTUAbpKTq_y1GWW_IDmzOo-5_8zwTQ5n3t8ii53Ts6QMllCNZtQQZi3BhxbHPG173QCQH9iCrn9r0vJqm6gyJZm8blTeL_Zb8nqJ2I_KSMS7n5rpSnYSYsgHnniPlc1a"/>
+<span class="absolute top-3 left-3 bg-primary text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm">CHEAPEST</span>
+</div>
+<h3 class="font-bold text-lg mb-2 line-clamp-1">EchoSphere v4</h3>
+<div class="space-y-3 mb-4">
+<div class="flex justify-between items-center text-sm p-2 rounded bg-surface-container-low">
+<span class="text-slate-500 font-medium">Amazon</span>
+<span class="font-bold">$149.00</span>
+</div>
+<div class="flex justify-between items-center text-sm p-2 rounded bg-surface-container-low">
+<span class="text-slate-500 font-medium">Internal Hub</span>
+<span class="font-bold">$155.00</span>
+</div>
+<div class="flex justify-between items-center text-sm p-2 rounded bg-secondary/10 border border-secondary/20">
+<span class="text-secondary font-bold">AliExpress</span>
+<span class="text-secondary font-bold">$132.50</span>
+</div>
+</div>
+<div class="flex items-center gap-2 mb-4">
+<div class="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+<div class="w-[65%] h-full bg-secondary"></div>
+</div>
+<span class="text-[10px] font-bold text-slate-400">65% Trust Score</span>
+</div>
+<button class="w-full bg-slate-900 text-white py-3 rounded-lg font-bold group-hover:bg-secondary transition-colors">Select Offer</button>
+</div>
+<!-- Compare Card 3 -->
+<div class="bg-surface-container-lowest p-5 rounded-2xl product-card-hover group">
+<div class="relative aspect-square rounded-xl overflow-hidden mb-4">
+<img alt="Minimalist Watch" class="w-full h-full object-cover" data-alt="High-end minimalist chronograph watch with leather strap on dark velvet surface, premium luxury lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8qBanD1gsthznz8PsPVWp33qetlZ4miXqK6yJls0jPqLV1RV0ast-aJCkIUMLz54m59X3fYpeRyxMkHjkkeXpSO59-sunyaLXWEdpUFStwODdcQgZGCQm8bCdQG-Yf5V3PDPAvkan_Lj4NML8hYhkqRFScqQVGBAIBCPuglTpXGSmbFFiBJmhOzfjqwXvr-OlEY2m6Z8pJXVYT03l4dWbBKJGCZNyuKwplNKv79joYJw5xL2yDrv8vU4jjNBMutyuGM0DlZcGF6i-"/>
+</div>
+<h3 class="font-bold text-lg mb-2 line-clamp-1">Chronos Elite Black</h3>
+<div class="space-y-3 mb-4">
+<div class="flex justify-between items-center text-sm p-2 rounded bg-secondary/10 border border-secondary/20">
+<span class="text-secondary font-bold">Amazon</span>
+<span class="text-secondary font-bold">$450.00</span>
+</div>
+<div class="flex justify-between items-center text-sm p-2 rounded bg-surface-container-low">
+<span class="text-slate-500 font-medium">Internal Hub</span>
+<span class="font-bold">$499.00</span>
+</div>
+<div class="flex justify-between items-center text-sm p-2 rounded bg-surface-container-low">
+<span class="text-slate-500 font-medium">AliExpress</span>
+<span class="font-bold">$455.00</span>
+</div>
+</div>
+<div class="flex items-center gap-2 mb-4">
+<div class="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+<div class="w-[98%] h-full bg-secondary"></div>
+</div>
+<span class="text-[10px] font-bold text-slate-400">98% Trust Score</span>
+</div>
+<button class="w-full bg-slate-900 text-white py-3 rounded-lg font-bold group-hover:bg-secondary transition-colors">Select Offer</button>
+</div>
+<!-- Compare Card 4 -->
+<div class="bg-surface-container-lowest p-5 rounded-2xl product-card-hover group">
+<div class="relative aspect-square rounded-xl overflow-hidden mb-4">
+<img alt="Wireless Audio" class="w-full h-full object-cover" data-alt="Over-ear wireless noise canceling headphones in matte black, floating against a soft blue gradient background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOltks4jIUlAloiOzid80If8s1RxQJvN5Jyo3alEo-vIgUvES_Jz1cL-amjkWTOb7SX4TsGPqojrEl6pIA2IC6w4-z2LkmyjylcJhKb0quCJiVSBXM96gj7kZpFtssn3oyPALqF1cCBzDvWvWfdMeERrXH2Vr6IM53tudZMQ3xWkYe3UwBGN6Yqz3FieP_N696AclRlWkWRLbim27GRiAsJs8nu1Mae1zcabVs0bd1COBKzq7QvHlSwJX4LcP_nINxjPsz3wzmRdq1"/>
+</div>
+<h3 class="font-bold text-lg mb-2 line-clamp-1">SonicWave ANC G2</h3>
+<div class="space-y-3 mb-4">
+<div class="flex justify-between items-center text-sm p-2 rounded bg-surface-container-low">
+<span class="text-slate-500 font-medium">Amazon</span>
+<span class="font-bold">$299.00</span>
+</div>
+<div class="flex justify-between items-center text-sm p-2 rounded bg-secondary/10 border border-secondary/20">
+<span class="text-secondary font-bold">Internal Hub</span>
+<span class="text-secondary font-bold">$265.00</span>
+</div>
+<div class="flex justify-between items-center text-sm p-2 rounded bg-surface-container-low">
+<span class="text-slate-500 font-medium">AliExpress</span>
+<span class="font-bold">$280.00</span>
+</div>
+</div>
+<div class="flex items-center gap-2 mb-4">
+<div class="flex-1 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+<div class="w-[85%] h-full bg-secondary"></div>
+</div>
+<span class="text-[10px] font-bold text-slate-400">85% Trust Score</span>
+</div>
+<button class="w-full bg-slate-900 text-white py-3 rounded-lg font-bold group-hover:bg-secondary transition-colors">Select Offer</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Internal Sellers Bento Grid -->
+<section class="py-24 px-8 max-w-[1920px] mx-auto">
+<div class="mb-12 text-center">
+<h2 class="text-4xl font-black font-headline tracking-tight mb-4">The Artisan Collective</h2>
+<p class="text-slate-500 max-w-2xl mx-auto font-medium">Curated boutique storefronts from our internal Shopify-integrated partners. Elite quality, verified logistics.</p>
+</div>
+<div class="grid grid-cols-12 grid-rows-2 gap-6 h-[700px]">
+<!-- Bento Item 1 -->
+<div class="col-span-12 md:col-span-7 row-span-2 relative rounded-3xl overflow-hidden group">
+<img alt="Luxury Home Decor" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Modern luxury living room with designer furniture, large windows, and warm ambient lighting, high-end interior photography style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlQ-hxMnk0qM9h9CjeBzyzQqVNYSj8kQy8PX24Wi8IqWwB_-fjwx6lxyYKIBIJWSiscfTKyQUatz9x4-U4WwoXV_W_9Pkk1vl2AsDdhKFq5gb_RMT2Gj3ZULJXuvDRScE-ueU-bIeatLNRTtWMAHI8GeP0hum2fErVS2PRn_eZmURGq1KJwYMOYENuCFUUiSlMEe1c-sHzq2etHD1OqxH84ev1kx-Rh8UJwI8IOdsyGr1MhMjPSDPhOU2VsawAKwakjcb0-f7MedyJ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-10">
+<span class="text-secondary-fixed font-bold text-sm mb-2">FEATURED ATELIER</span>
+<h3 class="text-white text-4xl font-bold mb-4">Haus &amp; Velour</h3>
+<p class="text-slate-300 max-w-md mb-6">Handcrafted sustainable furniture and bespoke interior accents from leading European designers.</p>
+<button class="bg-white text-black px-6 py-3 rounded-full font-bold w-fit hover:bg-secondary hover:text-white transition-colors">Visit Storefront</button>
+</div>
+</div>
+<!-- Bento Item 2 -->
+<div class="col-span-12 md:col-span-5 row-span-1 relative rounded-3xl overflow-hidden group">
+<img alt="Tech Lab" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Close-up of internal electronic components and circuit boards with neon blue lighting, futuristic and technical look" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4Ycnc6CCx-vJVZtoQ-CBxw-HQbPtE5kJ8rwBF62F03tfUsxF8Z2-8KyHz3Mocpr4eu28ocYTxPQ8Qtq5UtGE5oDaquLO17XtTM5dcpXooDs7HUfTMlmGQHScNgpjdUXHGIFxNNH2sygp69k62HK4Bdw7pjecnR5MItyDgLzhTX2YFgGUfWhiiQbitMgUUtn-xbKTx7kGTSqDD55phzDysi9HKWXk7zmWYrbbvEttRGf3oiAywotA6C_Lc0uXzBsNHZ6AZ5BIBXm01"/>
+<div class="absolute inset-0 bg-primary-container/40 backdrop-blur-[2px] group-hover:backdrop-blur-0 transition-all"></div>
+<div class="absolute inset-0 flex flex-col justify-end p-8">
+<h3 class="text-white text-2xl font-bold mb-2">Volt &amp; Co.</h3>
+<p class="text-slate-200 text-sm mb-4">Precision-engineered audio and computing essentials.</p>
+<button class="text-white font-bold text-sm flex items-center gap-1 group/btn">
+                            View Collection <span class="material-symbols-outlined text-sm transition-transform group-hover/btn:translate-x-1">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Bento Item 3 -->
+<div class="col-span-12 md:col-span-5 row-span-1 relative rounded-3xl overflow-hidden group">
+<img alt="Skincare Boutique" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Minimalist skincare bottles on white marble with soft natural shadows and high-key lighting, organic aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZC4EkMzlhov1Y4XySBCg_zcI4pHXWP0YfeZtLZZ5HAYTEmrI1A-ti2yDMmeyVIxLchCwk9emwRCky0NqY7W0gmx3fd7X8X8vdcUaPwcTi4Oo0nvQN-BoCy-velWNKC9y5poCIpBOwJ-5SF8djFRsoIk3wg9ngt7xc0Eby-lGTO2m1GR_U_9go81HvCGE9PlyhzF-y2Pu88tSXkwDcTCO5CoaUiyCr7XPbFViAkUcCVyVis5ILrQpZc8-hxrME5h0lYOhkVZnew4SY"/>
+<div class="absolute inset-0 bg-black/30"></div>
+<div class="absolute inset-0 flex flex-col justify-end p-8">
+<h3 class="text-white text-2xl font-bold mb-2">Lumia Botanicals</h3>
+<p class="text-slate-200 text-sm mb-4">Clean beauty and skincare formulated in small batches.</p>
+<button class="text-white font-bold text-sm flex items-center gap-1 group/btn">
+                            Explore Brand <span class="material-symbols-outlined text-sm transition-transform group-hover/btn:translate-x-1">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Affiliate Hub & Flash Sales Row -->
+<section class="py-20 bg-primary-container text-white">
+<div class="px-8 max-w-[1920px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
+<!-- Affiliate Section -->
+<div class="lg:col-span-2">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-3xl font-bold font-headline">Top Affiliate Hub Picks</h2>
+<span class="text-secondary-fixed text-sm font-bold bg-white/10 px-4 py-1 rounded-full">Partner Verified</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-white/5 border border-white/10 p-6 rounded-2xl flex gap-6 hover:bg-white/10 transition-colors">
+<div class="w-24 h-24 rounded-lg overflow-hidden shrink-0">
+<img alt="Camera accessory" class="w-full h-full object-cover" data-alt="Sleek black gimbal for smartphone on a neutral background, high-tech vibe" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDb7UrERWaTyCpO0WtV9Qqt4wgflBQKUbPxeJrjEodb1Ah_G_TSDDmkS7TZghvHz7LMw7HHjIjRmqSTFU1vrM5BUPwtZeiAAc5oJKC2rGbKsLiIve_gFbHKgqmHPMbGNARr9aY1VgEsap152BWTHovMqtdwydV0TQtRagnYMdpQhafVrtfCQ2URDzrlkzhNUfTSpJUH3EUxjz86Qan0M9tNXqwGbALbRkEbzo3JhRk-WsqmkTA98DOQzfaC7yjRkgEPaxL6IXFN8LqM"/>
+</div>
+<div>
+<h4 class="font-bold mb-1">DJI Osmo Mobile 6</h4>
+<div class="flex items-center text-yellow-400 text-xs mb-2">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star_half</span>
+<span class="ml-2 text-slate-400">(4.8k reviews)</span>
+</div>
+<p class="text-secondary-fixed font-bold">$159.00 <span class="text-slate-500 line-through text-xs ml-2">$189.00</span></p>
+</div>
+</div>
+<div class="bg-white/5 border border-white/10 p-6 rounded-2xl flex gap-6 hover:bg-white/10 transition-colors">
+<div class="w-24 h-24 rounded-lg overflow-hidden shrink-0">
+<img alt="Mechanical Keyboard" class="w-full h-full object-cover" data-alt="Mechanical keyboard with colorful RGB lighting in a dark room, detailed keycaps" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2l-XfY1v0gJuzerG6kMfN4KhkYADE0bkJMMrqnor0tfFKM7TsXVD8BJG-l4rt95i634dEYk0BFCCInAFDCvy2IjjwKxn2ZDKUV8HVjh3_SWQYYqJ79dcJKa-JzMIY48hNnb7-xIy984LJhqX397g10EuWLl54y6zLv0hB5_P0j9lbq_c4z6Yb_5yvkFyNz3toZHl8JPb41Cuw68NNeAatLHSPwoZMqoIPzWpvsSmtc4P2P6ACKn8QI28mrDF73C9l6wo8qNEc_bRc"/>
+</div>
+<div>
+<h4 class="font-bold mb-1">Keychron K2 V2</h4>
+<div class="flex items-center text-yellow-400 text-xs mb-2">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="ml-2 text-slate-400">(12.1k reviews)</span>
+</div>
+<p class="text-secondary-fixed font-bold">$99.00 <span class="text-slate-500 line-through text-xs ml-2">$120.00</span></p>
+</div>
+</div>
+</div>
+</div>
+<!-- Flash Sales Section -->
+<div class="bg-secondary rounded-3xl p-8 flex flex-col justify-center relative overflow-hidden">
+<div class="absolute -top-12 -right-12 w-48 h-48 bg-white/10 rounded-full blur-3xl"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-white animate-pulse" style="font-variation-settings: 'FILL' 1;">schedule</span>
+<h2 class="text-2xl font-bold font-headline">Flash Sales</h2>
+</div>
+<p class="text-white/80 mb-6 text-sm">Next drop in:</p>
+<div class="flex gap-3 mb-8">
+<div class="bg-primary-container text-white w-14 h-14 flex flex-col items-center justify-center rounded-xl font-bold">
+<span>04</span>
+<span class="text-[8px] opacity-60">HRS</span>
+</div>
+<div class="bg-primary-container text-white w-14 h-14 flex flex-col items-center justify-center rounded-xl font-bold">
+<span>22</span>
+<span class="text-[8px] opacity-60">MIN</span>
+</div>
+<div class="bg-primary-container text-white w-14 h-14 flex flex-col items-center justify-center rounded-xl font-bold">
+<span>59</span>
+<span class="text-[8px] opacity-60">SEC</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-4 bg-white/10 p-3 rounded-xl">
+<div class="w-12 h-12 bg-white rounded-lg shrink-0"></div>
+<div class="flex-1">
+<p class="text-xs font-bold">Smart Watch Ultra</p>
+<p class="text-lg font-black">$49.99 <span class="text-[10px] opacity-60 line-through">$199.00</span></p>
+</div>
+</div>
+<button class="w-full bg-white text-secondary py-3 rounded-xl font-black text-sm uppercase tracking-wider hover:bg-primary-container hover:text-white transition-colors">Join the Drop</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust & Payments Section -->
+<section class="py-16 bg-surface-container-low border-y border-slate-200">
+<div class="px-8 max-w-[1920px] mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+<div class="max-w-md">
+<h3 class="text-xl font-bold mb-2">Global Checkout Security</h3>
+<p class="text-slate-500 text-sm">We ensure your transactions are protected by military-grade encryption and regional payment gateways.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8 opacity-60 grayscale hover:grayscale-0 transition-all">
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-3xl">payments</span>
+<span class="text-[10px] font-bold">STRIPE</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-3xl">account_balance</span>
+<span class="text-[10px] font-bold">BANK TRANSFER</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-3xl">credit_card</span>
+<span class="text-[10px] font-bold">VISA/MC</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-3xl">wallet</span>
+<span class="text-[10px] font-bold">JAZZCASH</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-3xl">currency_bitcoin</span>
+<span class="text-[10px] font-bold">CRYPTO</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Newsletter Section -->
+<section class="bg-surface-container-lowest py-24">
+<div class="px-8 max-w-4xl mx-auto text-center">
+<h2 class="text-4xl font-black font-headline mb-4">Stay ahead of the curve.</h2>
+<p class="text-slate-500 mb-10">Get weekly insights into price trends, new internal sellers, and exclusive affiliate deals.</p>
+<div class="flex flex-col md:flex-row gap-4 max-w-xl mx-auto">
+<input class="flex-1 bg-surface-container-low border-none rounded-xl px-6 py-4 focus:ring-2 focus:ring-secondary/20" placeholder="Enter your business email" type="email"/>
+<button class="bg-secondary text-white px-8 py-4 rounded-xl font-bold hover:brightness-105 transition-all">Subscribe Now</button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950">
+<div class="flex flex-col md:flex-row justify-between items-start px-8 py-16 gap-12 w-full max-w-7xl mx-auto">
+<div class="max-w-xs">
+<span class="text-xl font-black text-slate-900 dark:text-slate-50 font-headline mb-4 block">Executive Marketplace</span>
+<p class="text-slate-500 text-sm leading-relaxed mb-6 font-body">The architectural ledger for modern commerce. Bridging global giants and boutique specialists in one unified interface.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-slate-400 hover:text-secondary cursor-pointer">social_leaderboard</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-secondary cursor-pointer">brand_awareness</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-secondary cursor-pointer">share</span>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-12 flex-1">
+<div class="space-y-4">
+<h4 class="font-bold text-slate-900 text-sm">Marketplace</h4>
+<ul class="text-xs space-y-3 text-slate-500 font-medium Inter">
+<li class="hover:text-slate-900 cursor-pointer">Amazon Hub</li>
+<li class="hover:text-slate-900 cursor-pointer">AliExpress Direct</li>
+<li class="hover:text-slate-900 cursor-pointer">Seller Portal</li>
+<li class="hover:text-slate-900 cursor-pointer">Affiliate Network</li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-slate-900 text-sm">Company</h4>
+<ul class="text-xs space-y-3 text-slate-500 font-medium Inter">
+<li class="hover:text-slate-900 cursor-pointer">About Us</li>
+<li class="hover:text-slate-900 cursor-pointer">Trust Center</li>
+<li class="hover:text-slate-900 cursor-pointer">Seller Handbook</li>
+<li class="hover:text-slate-900 cursor-pointer">Careers</li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-slate-900 text-sm">Support</h4>
+<ul class="text-xs space-y-3 text-slate-500 font-medium Inter">
+<li class="hover:text-slate-900 cursor-pointer">Help Center</li>
+<li class="hover:text-slate-900 cursor-pointer">Returns Policy</li>
+<li class="hover:text-slate-900 cursor-pointer">Shipping Guide</li>
+<li class="hover:text-slate-900 cursor-pointer">Contact</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="border-t border-slate-200 py-8 px-8">
+<div class="flex flex-col md:flex-row justify-between items-center gap-6 w-full max-w-7xl mx-auto">
+<span class="text-xs font-medium Inter text-slate-500">© 2024 Executive Marketplace. All rights reserved.</span>
+<div class="flex flex-wrap justify-center gap-6 text-xs font-medium Inter text-slate-500">
+<a class="hover:text-slate-900 dark:hover:text-slate-50 transition-opacity opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="hover:text-slate-900 dark:hover:text-slate-50 transition-opacity opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="hover:text-slate-900 dark:hover:text-slate-50 transition-opacity opacity-80 hover:opacity-100" href="#">Trust Center</a>
+<a class="hover:text-slate-900 dark:hover:text-slate-50 transition-opacity opacity-80 hover:opacity-100" href="#">Seller Handbook</a>
+<a class="text-blue-700 dark:text-blue-400 font-bold underline" href="#">Region: US ($)</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
